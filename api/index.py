@@ -46,10 +46,10 @@ class handler(BaseHTTPRequestHandler):
         self.send_header("Content-Type", "text/plain")
         self.end_headers()
 
-        token_status = "configured" if BOT_TOKEN else "missing"
+        token_status = "configured" if os.environ.get("BOT_TOKEN") else "missing"
         self.wfile.write(
             f"Bot webhook is running. BOT_TOKEN is {token_status}.".encode("utf-8")
-        )
+            )
 
     def do_POST(self):
         content_length = int(self.headers.get("Content-Length", 0))
