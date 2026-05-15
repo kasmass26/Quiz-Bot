@@ -1,7 +1,7 @@
 from http.server import BaseHTTPRequestHandler
 import json
 import os
-import requests
+import requests # type: ignore
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
 
